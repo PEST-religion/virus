@@ -67,39 +67,5 @@
       }, 1000);
       });
   </script>
-  <!-- アクセス条件 -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyAZ6NQ9gR_5r5LX_lnuV3AAahpJrrBZwzg",
-      authDomain: "pest-a69d4.firebaseapp.com",
-      projectId: "pest-a69d4",
-      storageBucket: "pest-a69d4.appspot.com",
-      messagingSenderId: "1073634294855",
-      appId: "1:1073634294855:web:c2fdf25327abc64ded0562",
-      measurementId: "G-WZS7H4KZ83"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-
-    // ログイン状態を監視
-    onAuthStateChanged(auth, (user) => {
-      if (!user) {
-        window.location.href = "https://pest-religion.github.io/HP/login.html";
-      }
-    });
-
-    // ログインから48時間以上経過していたら、ログインページにリダイレクト
-    window.onload = () => {
-      const lastLoginTime = localStorage.getItem('lastLoginTime');
-      const currentTime = Date.now();
-      if (!lastLoginTime || (currentTime - lastLoginTime >= 48 * 60 * 60 * 1000)) {
-        window.location.href = "https://pest-religion.github.io/HP/login.html";
-      }
-    };
-  </script>
 </body>
 </html>
